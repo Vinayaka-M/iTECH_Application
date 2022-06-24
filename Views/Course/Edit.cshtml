@@ -1,0 +1,46 @@
+﻿@model iTECH_Application.Models.Course
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary">Edit Course</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Edit">
+                        <div class="form-group">
+                            <label asp-for="courseName">Course Name</label>
+                            <input type="hidden" asp-for="Id" />
+                            <input type="text" asp-for="courseName" class="form-control" placeholder="Enter Course Name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="duration">Duration</label>
+                            <input type="text" asp-for="duration" class="form-control" placeholder="Enter number of days" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="instructor">Instructor</label>
+                            <input type="text" asp-for="instructor" class="form-control" placeholder="Enter instructor name" />
+                        </div>
+
+                        @* ***Pending***** <div class="form-group">
+                                <label asp-for="startDate">Start Date</label>
+                                <input type="text" asp-for="startDate" class="form-control" placeholder="Enter number of days" />
+                            </div>*@
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-sm btn-outline-success float-right" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

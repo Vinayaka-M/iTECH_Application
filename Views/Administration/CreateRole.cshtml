@@ -1,0 +1,38 @@
+﻿@model iTECH_Application.ViewModels.CreateRoleViewModel;
+
+@{
+    ViewBag.Title = "Create Role";
+    Layout = "_Layout";
+}
+
+
+    <div class="container">
+
+        <h2>Create New Role</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="CreateRole">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="RoleName" class="control-label"></label>
+                        <input asp-for="RoleName" class="form-control" />
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                  
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <img src="~/images/signupimg.png" class="img-fluid" />
+            </div>
+        </div>
+
+      
+
+    </div>
+
+
+

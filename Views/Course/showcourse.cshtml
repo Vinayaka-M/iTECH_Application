@@ -1,0 +1,77 @@
+﻿@model IEnumerable<iTECH_Application.Models.Course>
+
+
+
+
+@{
+    ViewData["Title"] = "Course";
+    int slNo = 0;
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1 class="text-center text-primary">iTECH Courses</h1>
+
+            <a class="btn btn-sm btn-success m-1" asp-controller="Course" asp-action="Create">Create</a>
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Search by Course
+                    @Html.TextBox("SearchString")
+                    <input type="submit" value="Search" placeholder="Course Name" />
+
+                </p>
+            }
+
+            <p class="text-center text-success">@TempData["error"]</p>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+
+                        <th>Sl.No.</th>
+                        <th>Course Name</th>
+
+                        <th>Duration</th>
+                        <th>Instructor</th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                @foreach (var d in Model)
+                {
+                    slNo = slNo + 1;
+                    <tr class="text-center">
+                        <td>@slNo</td>
+                        <td>@d.courseName</td>
+                        <td>@d.duration</td>
+                        <td>@d.instructor</td>
+
+                        <td>
+                            <a class="btn btn-sm btn-light" asp-controller="Course" asp-action="Edit" asp-route-id="@d.Id">Edit</a>
+                            <a class="btn btn-sm btn-danger" asp-controller="Course" asp-action="Delete" asp-route-id="@d.Id">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+            @*@{
+                var prevDisabled = !Model.PreviousPage ? "disabled" : "";
+                var nextDisabled = !Model.NextPage ? "disabled" : "";
+            }
+            <a asp-action="showCourse" asp-route-pageNumber="@(Model.PageIndex-1)"
+               class="btn btn-default @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="showCourse" asp-route-pageNumber="@(Model.PageIndex+1)"
+               class="btn btn-default @nextDisabled">
+                Next
+            </a>*@
+            <cs-pager cs-paging-pagenumber="4" cs-paging-totalitems="4" cs-paging-pagesize="1" cs-pagenumber-param="pagenumber"
+                      asp-controller="Course" asp-action="showCourse"></cs-pager>
+        </div>
+    </div>
+
+</div>
+
