@@ -1,0 +1,36 @@
+﻿@model IEnumerable<iTECH_Application.Models.ApplicationUser>
+
+@*@model List<ApplicationUser>*@
+    @{
+        ViewData["Title"] = "UserList";
+
+    }
+
+    <h1>UserList</h1>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr class="text-center">
+
+                <th>First Name</th>
+                <th>Last Name</th>
+
+                <th>Email</th>
+
+
+            </tr>
+        </thead>
+        @foreach (ApplicationUser u in Model)
+        {
+
+            <tr class="text-center">
+                <td>@u.FirstName </td>
+                <td>@u.LastName</td>
+                <td>@u.Email</td>
+
+
+
+
+            </tr>
+        }
+    </table>
+
