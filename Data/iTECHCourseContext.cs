@@ -17,5 +17,6 @@ namespace iTECH_Application.Data
         }
         public DbSet<Course> Courses { get; set; }
         public DbSet<CategoryModel> Categories { get; set; }
+        public DbSet<ApplicationUser> Users {get; set;}
     }
 }
